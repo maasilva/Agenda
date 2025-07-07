@@ -1,0 +1,28 @@
+@page
+@model Agenda.Pages.LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="d-flex justify-content-center align-items-center" style="min-height: 70vh;">
+    <div class="card shadow-sm p-4 w-100" style="max-width: 340px;">
+        <h2 class="text-center mb-4">Login</h2>
+        <form method="post">
+            <div class="form-group mb-3">
+                <label for="Login">Usuário</label>
+                <input asp-for="Login" class="form-control form-control-sm" style="max-width: 100%; min-width: 0;" />
+            </div>
+            <div class="form-group mb-3">
+                <label for="Senha">Senha</label>
+                <input asp-for="Senha" class="form-control form-control-sm" type="password" style="max-width: 100%; min-width: 0;" />
+            </div>
+            @if (!string.IsNullOrEmpty(Model.Erro))
+            {
+                <div class="alert alert-danger text-center">@Model.Erro</div>
+            }
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary">Entrar</button>
+            </div>
+        </form>
+    </div>
+</div>

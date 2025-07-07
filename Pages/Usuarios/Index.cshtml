@@ -1,0 +1,30 @@
+@page
+@model Agenda.Pages.Usuarios.IndexModel
+@{
+    ViewData["Title"] = "Usuários";
+}
+
+<h2>Usuários</h2>
+<a asp-page="Create" class="btn btn-primary mb-2">Adicionar Usuário</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Login</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var usuario in Model.Usuarios)
+    {
+        <tr>
+            <td>@usuario.Nome</td>
+            <td>@usuario.Login</td>
+            <td>
+                <a asp-page="Edit" asp-route-id="@usuario.Id">Alterar Senha</a> |
+                <a asp-page="Delete" asp-route-id="@usuario.Id">Excluir</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

@@ -1,0 +1,27 @@
+@page
+@model Agenda.Pages.Compromissos.CreateModel
+@{
+    ViewData["Title"] = "Novo Compromisso";
+}
+
+<h1>Novo Compromisso</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Compromisso.Descricao"></label>
+        <input asp-for="Compromisso.Descricao" class="form-control" />
+        <span asp-validation-for="Compromisso.Descricao" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Compromisso.Local"></label>
+        <input asp-for="Compromisso.Local" class="form-control" />
+        <span asp-validation-for="Compromisso.Local" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Compromisso.DataHora"></label>
+        <input asp-for="Compromisso.DataHora" class="form-control" type="datetime-local" />
+        <span asp-validation-for="Compromisso.DataHora" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-success">Salvar</button>
+    <a asp-page="Index" class="btn btn-secondary">Cancelar</a>
+</form>

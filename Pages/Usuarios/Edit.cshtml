@@ -1,0 +1,24 @@
+@page "Edit/{id:int}"
+@model Agenda.Pages.Usuarios.EditModel
+@{
+    ViewData["Title"] = "Alterar Senha";
+}
+
+<h2>Alterar Senha</h2>
+<form method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label asp-for="NovaSenha"></label>
+        <input asp-for="NovaSenha" class="form-control" type="password" />
+    </div>
+    <div class="form-group">
+        <label asp-for="ConfirmarSenha"></label>
+        <input asp-for="ConfirmarSenha" class="form-control" type="password" />
+    </div>
+    @if (!string.IsNullOrEmpty(Model.Erro))
+    {
+        <div class="alert alert-danger">@Model.Erro</div>
+    }
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a asp-page="Index" class="btn btn-secondary">Cancelar</a>
+</form>
